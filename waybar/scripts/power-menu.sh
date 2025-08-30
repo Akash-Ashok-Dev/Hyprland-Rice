@@ -1,6 +1,6 @@
 #!/bin/bash
 
-chosen=$(printf "Shutdown\nReboot\nSuspend\nHibernate\nCancel" | rofi -dmenu -i -p "Power")
+chosen=$(printf "Shutdown\nReboot\nSuspend\nHibernate\nCancel" | wofi -dmenu -i -p "Power")
 
 case "$chosen" in
   Shutdown) systemctl poweroff ;;

@@ -19,7 +19,6 @@
         "pulseaudio",
         "network",
         "battery",
-        "clock",
        // "tray",
         "custom/power"
     ],
@@ -39,11 +38,6 @@
     "format": "{name}"
     },
 
-    "clock": {
-    "format": "{:%a %d %b %H:%M}", // Sat 13 Jul 18:00
-    "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt>{:%H:%M:%S}</tt>",
-    "interval": 1
-    },
 
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -73,7 +67,7 @@
     },
     "tray": {
         // "icon-size": 21,
-        "spacing": 10,
+        //"spacing": 10,
         // "icons": {
         //   "blueman": "bluetooth",
         //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
@@ -81,23 +75,17 @@
     },
     "clock": {
         // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        // "tooltip-format": "<tt><small>{calendar}</small></tt>"
+	"format": "{:%H:%M | %d %b | %A}",
+   	 "tooltip-format": "{calendar}"
     },
+
     "cpu": {
         "format": "{usage}% ",
         "tooltip": false
     },
     "memory": {
         "format": "{}% "
-    },
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
     },
     "battery": {
         "states": {
@@ -166,18 +154,6 @@
         "escape": true,
         //"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
-    "custom/ogpower": {
-        "format" : "⏻ ",
-		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
     },
     "custom/power": {
   "format": "⏻",
